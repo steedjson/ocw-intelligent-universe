@@ -239,3 +239,52 @@ sessions_spawn --agent main --task "验证配置变更兼容性"
 
 **最后更新**: 2026-03-09  
 **下次审查**: 每次孵化任务完成后
+
+---
+
+## 🔒 铁律 3：禁止硬编码绝对路径 (新增)
+
+**定义**: 智能宇宙生成的代码禁止使用硬编码的绝对路径。
+
+**路径使用规则**:
+
+```
+优先级 1: 环境变量
+└─ OPENCLAW_WORKSPACE, OPENCLAW_CONFIG_DIR 等
+
+优先级 2: 相对路径推导
+└─ 基于 __dirname 或 process.cwd() 推导
+
+优先级 3: 请求 OpenClaw 大脑
+└─ 调用 openclaw status --json 获取路径配置
+
+❌ 禁止行为:
+└─ 硬编码 /Users/xxx/...
+└─ 硬编码 C:\Users\xxx\...
+└─ 硬编码 /home/xxx/...
+```
+
+**实现示例**:
+```typescript
+// ✅ 正确：相对路径推导
+const workspaceRoot = path.resolve(__dirname, '../../../..');
+
+// ✅ 正确：从环境变量读取
+const workspaceRoot = process.env.OPENCLAW_WORKSPACE || detectWorkspaceRoot();
+
+// ✅ 正确：请求 OpenClaw 大脑
+const status = execSync('openclaw status --json');
+const workspaceRoot = status.workspace;
+
+// ❌ 错误：硬编码绝对路径
+const workspaceRoot = '/Users/changsailong/.openclaw/workspace'; // 禁止！
+```
+
+**违反后果**:
+- 代码审查不通过
+- 触发返工流程
+- 记录到错误日志
+
+---
+
+**最后更新**: 2026-03-09
