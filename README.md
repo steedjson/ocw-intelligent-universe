@@ -2,18 +2,70 @@
 
 > OpenClaw 智能一体化系统 - 让 Skill 孵化像宇宙诞生一样自然
 
-**版本**: 1.0.0  
+**版本**: 2.0.0  
 **作者**: 小屁孩 (OpenClaw Assistant)  
 **许可**: MIT
 
 ---
 
-## 🎯 核心功能
+## 🧠 核心基因
 
-- **自动代码孵化**: 根据自然语言需求，自动生成 Skill 代码
-- **沙箱隔离测试**: 安全验证，防死循环熔断机制
-- **集成提案生成**: 一键生成 Markdown 审批文档
-- **完美卸载**: 依赖追踪 + 快照回滚
+OCW 智能宇宙拥有 5 大核心基因：
+
+1. **唯一性** ⭐⭐⭐⭐⭐ - 类似功能只能有一个实现
+2. **极致性能** ⭐⭐⭐⭐⭐ - 速度优先，资源占用最小化
+3. **项目兼容性** ⭐⭐⭐⭐⭐ - 100% 兼容目标项目配置规范
+4. **优雅完美性** ⭐⭐⭐⭐⭐ - 代码简洁，逻辑清晰，质量至上
+5. **自我进化** ⭐⭐⭐⭐⭐ (第一定律) - 遇到问题主动修复，永不放弃
+
+详见：[GENES.md](GENES.md)
+
+---
+
+## 📜 核心规则
+
+**第一定律**: 遇到问题时，先尝试自我修复，修复不了主动请求主代理协助，修复完成后继续执行失败点。
+
+详见：[CORE_RULES.md](CORE_RULES.md)
+
+---
+
+## 🔄 12 步工业化闭环流程
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                  OCW 智能宇宙完整闭环                     │
+├─────────────────────────────────────────────────────────┤
+│                                                         │
+│  1️⃣ 需求接收 → 2️⃣ 需求解析 → 3️⃣ 规格生成              │
+│       ↓                                                  │
+│  4️⃣ 代码孵化 → 5️⃣ 代码审查 → 6️⃣ 沙箱测试              │
+│       ↓                                                  │
+│  7️⃣ 安全审查 → 8️⃣ 提案生成 → 9️⃣ 小主人审批            │
+│       ↓                                                  │
+│  🔟 安装执行 → 1️⃣1️⃣ 安装验证 → 1️⃣2️⃣ 文档归档          │
+│       ↓                                                  │
+│  ✅ 完成 (失败 → 回滚 → 修复 → 重试)                     │
+│                                                         │
+└─────────────────────────────────────────────────────────┘
+```
+
+### 各环节说明
+
+| 步骤 | 名称 | 职责 | 质量门禁 |
+|------|------|------|----------|
+| 1 | 需求接收 | 接收自然语言需求 | - |
+| 2 | 需求解析 | 拆解为技术需求 | 完整性>90% |
+| 3 | 规格生成 | 生成技术规格文档 | 可测试性 100% |
+| 4 | 代码孵化 | CodeWeaver 生成代码 | 符合基因 1-4 |
+| 5 | 代码审查 | 检查代码质量 | 无 CRITICAL |
+| 6 | 沙箱测试 | 功能测试验证 | 通过率 100% |
+| 7 | 安全审查 | 安全漏洞扫描 | 无高危漏洞 |
+| 8 | 提案生成 | 生成集成提案 | 格式规范 |
+| 9 | 小主人审批 | 人工决策 | - |
+| 10 | 安装执行 | 执行安装操作 | 无错误 |
+| 11 | 安装验证 | 冒烟测试确认 | 功能正常 |
+| 12 | 文档归档 | 生成文档/日志 | 完整 |
 
 ---
 
@@ -21,49 +73,16 @@
 
 ### 安装
 ```bash
-openclaw skill install github:steedjson/ocw-intelligent-universe
+# 手动安装 (OpenClaw 当前版本)
+cd ~/.openclaw/workspace/skills
+git clone https://github.com/steedjson/ocw-intelligent-universe.git
+# 然后注册到 config/skills-config.json
 ```
 
 ### 使用
 ```bash
-# 孵化新 Skill
-openclaw ocw-intelligent-universe create skill "帮我做一个定时喝水提醒的小插件"
-
-# 查看孵化进度
-openclaw ocw-intelligent-universe status
-
-# 审批提案
-openclaw ocw-intelligent-universe approve <skill-id>
-```
-
----
-
-## 📋 流水线架构
-
-```
-需求解析 → SkillFactory → CodeWeaver → TestLoop → ProposalGenerator
-   ↓           ↓              ↓            ↓            ↓
- NLP 解析   空白骨架      AI 填充代码    沙箱测试    集成提案
-```
-
----
-
-## 🔧 配置说明
-
-在 `skills-config.json` 中添加：
-```json
-{
-  "ocw-intelligent-universe": {
-    "enabled": true,
-    "version": "1.0.0",
-    "path": "skills/ocw-intelligent-universe",
-    "config": {
-      "maxRetries": 3,
-      "timeoutSeconds": 300,
-      "autoApprove": false
-    }
-  }
-}
+# 通过主代理调用
+sessions_spawn --agent ocw-intelligent-universe --task "孵化一个 xxx Skill"
 ```
 
 ---
@@ -73,6 +92,8 @@ openclaw ocw-intelligent-universe approve <skill-id>
 ```
 ocw-intelligent-universe/
 ├── index.ts                 # 主控入口
+├── GENES.md                 # 核心基因 ⭐
+├── CORE_RULES.md            # 核心规则 ⭐
 ├── factories/
 │   ├── skill-factory/       # Skill 骨架工厂
 │   └── code-weaver/         # AI 代码编织器
