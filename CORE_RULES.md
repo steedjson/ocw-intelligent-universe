@@ -428,3 +428,88 @@ if (foundNewIssue) {
 ---
 
 **最后更新**: 2026-03-09
+
+---
+
+## 🔒 铁律 6：所有 Skill 安装必须走宇宙流程 (新增)
+
+**定义**: 任何 Skill 安装（无论来源）都必须通过智能宇宙的 12 步流程。
+
+**拦截范围**:
+```
+□ openclaw skill install → 拦截 → 走宇宙流程
+□ 手动安装 Skill → 拦截 → 走宇宙流程
+□ 直接放入 skills/目录 → 拦截 → 走宇宙流程
+□ 其他渠道获取的 Skill → 拦截 → 走宇宙流程
+□ GitHub 克隆的 Skill → 拦截 → 走宇宙流程
+```
+
+**核心思想**:
+```
+├─ 入口统一 - 只有一个 Skill 安装入口
+├─ 质量一致 - 所有 Skill 同等质量标准
+├─ 自我学习 - 从每次安装中学习
+└─ 不断完善 - 智能宇宙持续进化
+```
+
+**执行流程**:
+```
+1️⃣ 拦截外部 Skill 安装请求
+   ↓
+2️⃣ 解析 Skill 配置和需求
+   ├─ skill.json 验证
+   ├─ 依赖关系分析
+   └─ 权限配置检查
+   ↓
+3️⃣ 重新走 12 步流程
+   ├─ 需求解析
+   ├─ 代码审查
+   ├─ 沙箱测试
+   ├─ 安全审查
+   ├─ 兼容性验证
+   └─ ...
+   ↓
+4️⃣ 学习并完善自身
+   ├─ 记录 Skill 模式
+   ├─ 分析配置特点
+   ├─ 更新 Skill 模板库
+   └─ 优化验证规则
+   ↓
+5️⃣ 执行安装
+   ├─ 注册到 skills-config.json
+   ├─ 验证安装结果
+   └─ 生成使用文档
+```
+
+**学习机制**:
+```typescript
+// 每次安装后学习
+interface SkillInstallationLearning {
+  skillId: string;
+  configPattern: object;
+  dependencies: string[];
+  permissions: string[];
+  issues: Issue[];
+  solutions: Solution[];
+  timestamp: string;
+}
+
+// 更新 Skill 模板库
+if (isNewPattern) {
+  addNewSkillTemplate(learnedPattern);
+}
+
+// 优化验证规则
+if (foundNewIssue) {
+  addSkillValidationRule(newRule);
+}
+```
+
+**违反后果**:
+- 立即拦截并阻止安装
+- 记录到错误日志
+- 引导用户走正确流程
+
+---
+
+**最后更新**: 2026-03-09
