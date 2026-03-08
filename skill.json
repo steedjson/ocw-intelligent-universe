@@ -1,0 +1,20 @@
+{
+  "id": "ocw-intelligent-universe",
+  "name": "OCW 智能宇宙",
+  "version": "1.0.0",
+  "description": "OpenClaw 智能一体化系统，负责智能孵化、沙箱测试及一键集成 Skill 等资产。",
+  "author": "小屁孩 (OpenClaw Assistant)",
+  "main": "index.js",
+  "entry": "index.ts",
+  "permissions": {
+    "read": ["skills/**", "config/**", "workspace/**"],
+    "write": ["skills/generated/**", "workspace/sandbox/**"],
+    "execute": ["sessions_spawn"]
+  },
+  "dependencies": {
+    "task-master": "^2.0.0",
+    "spec-driven": "^1.0.0"
+  },
+  "keywords": ["universe", "factory", "sandbox", "automation", "creator", "ocw"],
+  "repository": "https://github.com/steedjson/ocw-intelligent-universe"
+}
