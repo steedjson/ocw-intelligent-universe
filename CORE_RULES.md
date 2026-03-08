@@ -513,3 +513,99 @@ if (foundNewIssue) {
 ---
 
 **最后更新**: 2026-03-09
+
+---
+
+## 🔒 铁律 7：全配置变更介入学习 (新增)
+
+**定义**: OpenClaw 任何配置变更，智能宇宙都要介入学习并自我完善。
+
+**监控范围**:
+```
+□ ~/.openclaw/openclaw.json 变更
+□ config/agent-registry.json 变更
+□ config/skills-config.json 变更
+□ config/*.json 变更
+□ memory/*.md 变更
+□ skills/ 目录变更
+□ 任何 OpenClaw 配置文件变更
+```
+
+**核心思想**:
+```
+├─ 全量监控 - 所有配置变更都监控
+├─ 主动学习 - 遇到不懂的主动学习
+├─ 权威来源 - 学习官方文档/权威知识
+└─ 持续成长 - 每次学习都变强
+```
+
+**学习流程**:
+```
+1️⃣ 检测配置变更
+   └─ 文件监控/版本对比
+   ↓
+2️⃣ 分析变更内容
+   ├─ 新增配置项？
+   ├─ 修改配置项？
+   └─ 删除配置项？
+   ↓
+3️⃣ 判断是否理解
+   ├─ 理解 → 记录模式
+   └─ 不理解 → 主动学习
+       ↓
+   4️⃣ 主动学习
+   ├─ 查询 OpenClaw 官方文档
+   ├─ 查询权威知识库
+   ├─ 分析配置用途
+   └─ 记录学习结果
+   ↓
+5️⃣ 更新自身知识库
+   ├─ 更新验证规则
+   ├─ 更新模板库
+   └─ 更新兼容性报告
+```
+
+**知识来源优先级**:
+```
+1️⃣ OpenClaw 官方文档 (docs.openclaw.ai)
+2️⃣ OpenClaw GitHub 仓库
+3️⃣ OpenClaw 官方 Skill 市场
+4️⃣ 权威技术文档
+5️⃣ 社区最佳实践
+```
+
+**实现方式**:
+```typescript
+// 配置变更检测
+interface ConfigChange {
+  file: string;
+  type: 'add' | 'modify' | 'delete';
+  before?: object;
+  after?: object;
+  timestamp: string;
+}
+
+// 主动学习
+async function learnUnknownConfig(configKey: string): Promise<void> {
+  // 1. 查询官方文档
+  const officialDoc = await searchOfficialDocs(configKey);
+  
+  // 2. 查询权威知识
+  const authorityKnowledge = await searchAuthorityKnowledge(configKey);
+  
+  // 3. 分析并记录
+  const learned = analyzeAndRecord(officialDoc, authorityKnowledge);
+  
+  // 4. 更新知识库
+  updateKnowledgeBase(learned);
+}
+```
+
+**违反后果**:
+- 记录到错误日志
+- 触发知识缺失告警
+- 连续错过学习 → 请求主代理介入
+
+---
+
+**最后更新**: 2026-03-09
