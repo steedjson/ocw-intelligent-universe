@@ -288,3 +288,68 @@ const workspaceRoot = '/Users/changsailong/.openclaw/workspace'; // 禁止！
 ---
 
 **最后更新**: 2026-03-09
+
+---
+
+## 🔒 铁律 4：OpenClaw 版本兼容性自检 (新增)
+
+**定义**: 每次 OpenClaw 版本更新后，智能宇宙必须自动检查兼容性并修复。
+
+**检查内容** (必须全部通过):
+```
+□ API 兼容性检查 - OpenClaw API 是否有破坏性变更
+□ 配置格式兼容性 - 配置文件格式是否变化
+□ 功能可用性验证 - 现有功能是否正常工作
+□ 向前兼容保证 - 是否支持旧版本 OpenClaw
+```
+
+**自检流程**:
+```
+1️⃣ 检测 OpenClaw 版本变化
+   └─ openclaw status --json 获取版本信息
+   ↓
+2️⃣ 运行兼容性测试套件
+   ├─ API 调用测试
+   ├─ 配置读写测试
+   └─ 功能集成测试
+   ↓
+3️⃣ 发现不兼容 → 自我修复
+   ├─ 更新 API 调用方式
+   ├─ 适配新配置格式
+   └─ 修复功能问题
+   ↓
+4️⃣ 修复失败 → 请求主代理
+   └─ 生成兼容性报告 + 修复建议
+   ↓
+5️⃣ 验证通过 → 更新兼容性报告
+   └─ 记录到 COMPATIBILITY.md
+```
+
+**实现方式**:
+```typescript
+// 版本检测
+const status = execSync('openclaw status --json');
+const currentVersion = status.version;
+
+// 兼容性检查
+if (currentVersion !== lastCheckedVersion) {
+  await runCompatibilityTests();
+  await fixIncompatibilities();
+  updateCompatibilityReport();
+}
+```
+
+**向前兼容原则**:
+- ✅ 支持当前版本 OpenClaw
+- ✅ 支持最近 3 个历史版本
+- ✅ 使用稳定 API，不使用实验性 API
+- ❌ 不依赖未文档化的内部接口
+
+**违反后果**:
+- 触发紧急修复流程
+- 记录到错误日志
+- 连续 3 次不通过 → 请求主代理介入
+
+---
+
+**最后更新**: 2026-03-09
