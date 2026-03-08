@@ -353,3 +353,78 @@ if (currentVersion !== lastCheckedVersion) {
 ---
 
 **最后更新**: 2026-03-09
+
+---
+
+## 🔒 铁律 5：所有 Agent 安装必须走宇宙流程 (新增)
+
+**定义**: 任何 Agent 安装（无论来源）都必须通过智能宇宙的 12 步流程。
+
+**核心思想**:
+```
+├─ 入口统一 - 只有一个安装入口
+├─ 质量一致 - 所有 Agent 同等质量标准
+├─ 自我学习 - 从每次安装中学习
+└─ 不断完善 - 智能宇宙持续进化
+```
+
+**拦截范围**:
+```
+□ 手动安装 Agent → 拦截 → 走宇宙流程
+□ openclaw agent install → 拦截 → 走宇宙流程
+□ 直接修改配置文件 → 拦截 → 走宇宙流程
+□ 其他 Skill 创建的 Agent → 拦截 → 走宇宙流程
+```
+
+**执行流程**:
+```
+1️⃣ 拦截外部 Agent 安装请求
+   ↓
+2️⃣ 解析 Agent 配置和需求
+   ↓
+3️⃣ 重新走 12 步流程
+   ├─ 需求解析
+   ├─ 代码审查
+   ├─ 沙箱测试
+   ├─ 安全审查
+   ├─ 兼容性验证
+   └─ ...
+   ↓
+4️⃣ 学习并完善自身
+   ├─ 记录安装模式
+   ├─ 分析配置特点
+   └─ 更新模板库
+   ↓
+5️⃣ 执行安装
+```
+
+**学习机制**:
+```typescript
+// 每次安装后学习
+interface InstallationLearning {
+  agentType: string;
+  configPattern: object;
+  issues: Issue[];
+  solutions: Solution[];
+  timestamp: string;
+}
+
+// 更新模板库
+if (isNewPattern) {
+  addNewTemplate(learnedPattern);
+}
+
+// 优化验证规则
+if (foundNewIssue) {
+  addValidationRule(newRule);
+}
+```
+
+**违反后果**:
+- 立即拦截并阻止安装
+- 记录到错误日志
+- 引导用户走正确流程
+
+---
+
+**最后更新**: 2026-03-09
