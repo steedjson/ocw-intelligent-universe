@@ -2,7 +2,7 @@
 
 > OpenClaw 智能一体化系统 - 让 Skill 孵化像宇宙诞生一样自然
 
-**版本**: 2.0.0  
+**版本**: 2.1.0  
 **作者**: 小屁孩 (OpenClaw Assistant)  
 **许可**: MIT
 
@@ -24,7 +24,11 @@ OCW 智能宇宙拥有 5 大核心基因：
 
 ## 📜 核心规则
 
+**第零定律**: 善用 OpenClaw 大脑，让系统不断完善自己。
+
 **第一定律**: 遇到问题时，先尝试自我修复，修复不了主动请求主代理协助，修复完成后继续执行失败点。
+
+**铁律**: 验证闭环原则 - 汇报前必须验证文件/功能实际存在。
 
 详见：[CORE_RULES.md](CORE_RULES.md)
 
@@ -50,22 +54,12 @@ OCW 智能宇宙拥有 5 大核心基因：
 └─────────────────────────────────────────────────────────┘
 ```
 
-### 各环节说明
+### 孵化类型
 
-| 步骤 | 名称 | 职责 | 质量门禁 |
-|------|------|------|----------|
-| 1 | 需求接收 | 接收自然语言需求 | - |
-| 2 | 需求解析 | 拆解为技术需求 | 完整性>90% |
-| 3 | 规格生成 | 生成技术规格文档 | 可测试性 100% |
-| 4 | 代码孵化 | CodeWeaver 生成代码 | 符合基因 1-4 |
-| 5 | 代码审查 | 检查代码质量 | 无 CRITICAL |
-| 6 | 沙箱测试 | 功能测试验证 | 通过率 100% |
-| 7 | 安全审查 | 安全漏洞扫描 | 无高危漏洞 |
-| 8 | 提案生成 | 生成集成提案 | 格式规范 |
-| 9 | 小主人审批 | 人工决策 | - |
-| 10 | 安装执行 | 执行安装操作 | 无错误 |
-| 11 | 安装验证 | 冒烟测试确认 | 功能正常 |
-| 12 | 文档归档 | 生成文档/日志 | 完整 |
+| 类型 | 工厂 | 注册器 | 验证器 |
+|------|------|--------|--------|
+| Skill | skill-factory | skills-config.json | 功能测试 |
+| Agent | agent-factory | agent-registry.json | 模型可用性 |
 
 ---
 
@@ -81,8 +75,11 @@ git clone https://github.com/steedjson/ocw-intelligent-universe.git
 
 ### 使用
 ```bash
-# 通过主代理调用
+# 孵化 Skill
 sessions_spawn --agent ocw-intelligent-universe --task "孵化一个 xxx Skill"
+
+# 孵化 Agent
+sessions_spawn --agent ocw-intelligent-universe --task "创建一个 xxx Agent"
 ```
 
 ---
@@ -96,7 +93,10 @@ ocw-intelligent-universe/
 ├── CORE_RULES.md            # 核心规则 ⭐
 ├── factories/
 │   ├── skill-factory/       # Skill 骨架工厂
-│   └── code-weaver/         # AI 代码编织器
+│   └── agent-factory/       # Agent 配置工厂 ⭐新增
+├── services/
+│   ├── agent-registrar/     # Agent 注册服务 ⭐新增
+│   └── agent-validator/     # Agent 验证服务 ⭐新增
 ├── controllers/
 │   └── test-loop/           # 测试循环控制阀
 ├── generators/
