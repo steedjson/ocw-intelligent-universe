@@ -1,6 +1,38 @@
 {
+  "name": "ocw-intelligent-universe",
+  "version": "1.0.0",
+  "description": "Intelligent Universe - Skill Incubation System for OpenClaw",
+  "main": "index.js",
+  "scripts": {
+    "dev:server": "NODE_ENV=development ts-node src/api/server.ts",
+    "dev:frontend": "cd src/frontend && npm run dev",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:frontend\"",
+    "build": "cd src/frontend && npm run build",
+    "start": "NODE_ENV=production node dist/api/server.js",
+    "start:dev": "NODE_ENV=development ts-node src/api/server.ts",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:e2e": "jest --config tests/e2e/jest.config.js"
+  },
+  "keywords": [
+    "openclaw",
+    "skill-incubation",
+    "automation"
+  ],
+  "author": "OpenClaw Team",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "ws": "^8.19.0"
+  },
   "devDependencies": {
-    "@types/node": "^25.3.5",
-    "typescript": "^5.9.3"
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.11.0",
+    "@types/ws": "^8.18.1",
+    "concurrently": "^8.2.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
   }
 }
